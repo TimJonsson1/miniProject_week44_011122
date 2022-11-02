@@ -15,7 +15,7 @@ while (isRunning)
 {
 
     //menu code
-    Console.ForegroundColor = ConsoleColor.DarkBlue;
+    Console.ForegroundColor = ConsoleColor.Blue;
     Console.WriteLine("To enter new product - enter 'P' | To search for a product - enter 'S' | To quit - enter 'Q'");
     Console.ResetColor();
     //code here
@@ -25,18 +25,34 @@ while (isRunning)
     {
         case "P":
 
-           products.Add(funk.NewProduct());
+            products.Add(funk.NewProduct());
+
+            foreach (ProductClass product in products)
+            {
+                if (product == null)
+                {
+                    products.Remove(product);
+                    break;
+                }
+            }
+           
 
             break;
         case "S":
 
-            Console.WriteLine("search function later");
-           
+            funk.SearchProduct(products);
+            
             break;
         case "Q":
 
             isRunning = false;
 
+            Console.WriteLine("the sum of all products are: " + funk.SumOfPice(products));
+
+            break;
+
+            default:
+                Console.WriteLine("Something went wrong check your input");
             break;
     }
     //this comment is from test1 branch
