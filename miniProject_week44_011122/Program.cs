@@ -13,6 +13,7 @@ bool isRunning = true;
 //loop until we quit
 while (isRunning)
 {
+
     //menu code
     Console.ForegroundColor = ConsoleColor.DarkBlue;
     Console.WriteLine("To enter new product - enter 'P' | To search for a product - enter 'S' | To quit - enter 'Q'");
@@ -29,10 +30,13 @@ while (isRunning)
             break;
         case "S":
 
-
+            Console.WriteLine("search function later");
            
             break;
         case "Q":
+
+            isRunning = false;
+
             break;
     }
    
