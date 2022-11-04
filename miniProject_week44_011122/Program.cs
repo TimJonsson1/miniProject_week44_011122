@@ -24,6 +24,7 @@ while (isRunning)
     switch (choice)
     {
         case "P":
+            //add code to create new product here
 
             products.Add(funk.NewProduct());
 
@@ -39,12 +40,12 @@ while (isRunning)
 
             break;
         case "S":
-
+            //add code to search product here
             funk.SearchProduct(products);
             
             break;
         case "Q":
-
+            //add code to quit the program and list all the items added and give a total sum of all the prices
             isRunning = false;
 
             Console.WriteLine("the sum of all products are: " + funk.SumOfPice(products));
@@ -55,7 +56,6 @@ while (isRunning)
                 Console.WriteLine("Something went wrong check your input");
             break;
     }
-    //this comment is from test1 branch
-    //this comment is from test2 branch
+    
     Console.ReadLine();
 }

@@ -45,16 +45,27 @@ namespace miniProject_week44_011122
         public void SearchProduct(List<ProductClass> product)
         {
             Console.Write("Enter a product name: ");
-            string name = Console.ReadLine();
+            string productName = Console.ReadLine().ToLower().Trim();
 
-            List<ProductClass> sortedProduct = product.OrderBy(p => p.ProductName.Equals(name)).ToList();
+            List<ProductClass> sortedProduct = product.OrderBy(p => p.ProductName.Equals(productName)).ToList();
             sortedProduct.Reverse();
 
             foreach (ProductClass pr in sortedProduct)
             {
-                Console.WriteLine("Category: " + pr.Category.PadRight(10) + " Product name: " + pr.ProductName.PadRight(10) + " Price: " + pr.Price);
+                if (pr.ProductName.Equals(productName))
+                {
+                    
+                    Console.ForegroundColor= ConsoleColor.DarkMagenta;
+                    Console.WriteLine("Category: " + pr.Category.PadRight(10) + " Product name: " + pr.ProductName.PadRight(10) + " Price: " + pr.Price);
+                    Console.ResetColor();
+                }
+                else
+                {
+                    Console.WriteLine("Category: " + pr.Category.PadRight(10) + " Product name: " + pr.ProductName.PadRight(10) + " Price: " + pr.Price);
+                }
             }
-          
+
+            Console.WriteLine("All done - press enter to continue");
 
         }
 
